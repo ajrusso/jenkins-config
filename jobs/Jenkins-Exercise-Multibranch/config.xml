@@ -1,0 +1,88 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject plugin="workflow-multibranch@806.vb_b_688f609ee9">
+  <actions/>
+  <description>DevOps Bootcamp 
+    Exercise 8: Build Automation &amp; CI/CD with Jenkins
+    Exercise 9: AWS Services
+</description>
+  <displayName>Exercise 8-9: Build Automation &amp; CI/CD</displayName>
+  <properties>
+    <org.jenkinsci.plugins.configfiles.folder.FolderConfigFileProperty plugin="config-file-provider@988.v0461fcc2b_9d1">
+      <configs class="sorted-set">
+        <comparator class="org.jenkinsci.plugins.configfiles.ConfigByIdComparator"/>
+      </configs>
+    </org.jenkinsci.plugins.configfiles.folder.FolderConfigFileProperty>
+    <org.jenkinsci.plugins.workflow.libs.FolderLibraries plugin="pipeline-groovy-lib@752.vdddedf804e72">
+      <libraries>
+        <org.jenkinsci.plugins.workflow.libs.LibraryConfiguration>
+          <name>jenkins-shared-library</name>
+          <retriever class="org.jenkinsci.plugins.workflow.libs.SCMSourceRetriever">
+            <clone>false</clone>
+            <libraryPath>./</libraryPath>
+            <scm class="org.jenkinsci.plugins.github_branch_source.GitHubSCMSource" plugin="github-branch-source@1822.v9eec8e5e69e3">
+              <id>7c182bd3-d25c-4839-aef5-03ca1dfcba7d</id>
+              <apiUri>https://api.github.com</apiUri>
+              <credentialsId>docker-hub-repo</credentialsId>
+              <repoOwner>ajrusso</repoOwner>
+              <repository>jenkins-shared-library</repository>
+              <repositoryUrl>https://github.com/ajrusso/jenkins-shared-library.git</repositoryUrl>
+              <traits/>
+            </scm>
+          </retriever>
+          <defaultVersion>feature/automateDockerVer</defaultVersion>
+          <implicit>false</implicit>
+          <allowVersionOverride>true</allowVersionOverride>
+          <includeInChangesets>true</includeInChangesets>
+        </org.jenkinsci.plugins.workflow.libs.LibraryConfiguration>
+      </libraries>
+    </org.jenkinsci.plugins.workflow.libs.FolderLibraries>
+  </properties>
+  <folderViews class="jenkins.branch.MultiBranchProjectViewHolder" plugin="branch-api@2.1217.v43d8b_b_d8b_2c7">
+    <owner class="org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject" reference="../.."/>
+  </folderViews>
+  <healthMetrics/>
+  <icon class="jenkins.branch.MetadataActionFolderIcon" plugin="branch-api@2.1217.v43d8b_b_d8b_2c7">
+    <owner class="org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject" reference="../.."/>
+  </icon>
+  <orphanedItemStrategy class="com.cloudbees.hudson.plugins.folder.computed.DefaultOrphanedItemStrategy" plugin="cloudbees-folder@6.1026.ve06dfa_cf31c3">
+    <pruneDeadBranches>true</pruneDeadBranches>
+    <daysToKeep>-1</daysToKeep>
+    <numToKeep>-1</numToKeep>
+    <abortBuilds>false</abortBuilds>
+  </orphanedItemStrategy>
+  <triggers/>
+  <disabled>false</disabled>
+  <sources class="jenkins.branch.MultiBranchProject$BranchSourceList" plugin="branch-api@2.1217.v43d8b_b_d8b_2c7">
+    <data>
+      <jenkins.branch.BranchSource>
+        <source class="org.jenkinsci.plugins.github_branch_source.GitHubSCMSource" plugin="github-branch-source@1822.v9eec8e5e69e3">
+          <id>849c70b9-2749-42c1-8cc2-07ddfe54c0d1</id>
+          <apiUri>https://api.github.com</apiUri>
+          <credentialsId>github-credentials</credentialsId>
+          <repoOwner>ajrusso</repoOwner>
+          <repository>DevOpsBootcamp</repository>
+          <repositoryUrl>https://github.com/ajrusso/DevOpsBootcamp.git</repositoryUrl>
+          <traits>
+            <org.jenkinsci.plugins.github__branch__source.BranchDiscoveryTrait>
+              <strategyId>3</strategyId>
+            </org.jenkinsci.plugins.github__branch__source.BranchDiscoveryTrait>
+          </traits>
+        </source>
+        <strategy class="jenkins.branch.DefaultBranchPropertyStrategy">
+          <properties class="empty-list"/>
+        </strategy>
+        <buildStrategies>
+          <au.com.versent.jenkins.plugins.ignoreCommitterStrategy.IgnoreCommitterStrategy plugin="ignore-committer-strategy@37.v0d3157c4a_ef8">
+            <ignoredAuthors>jenkins@example.com</ignoredAuthors>
+            <allowBuildIfNotExcludedAuthor>true</allowBuildIfNotExcludedAuthor>
+          </au.com.versent.jenkins.plugins.ignoreCommitterStrategy.IgnoreCommitterStrategy>
+        </buildStrategies>
+      </jenkins.branch.BranchSource>
+    </data>
+    <owner class="org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject" reference="../.."/>
+  </sources>
+  <factory class="org.jenkinsci.plugins.workflow.multibranch.WorkflowBranchProjectFactory">
+    <owner class="org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject" reference="../.."/>
+    <scriptPath>Exercises/AwsServices/aws-exercises/app/Jenkinsfile</scriptPath>
+  </factory>
+</org.jenkinsci.plugins.workflow.multibranch.WorkflowMultiBranchProject>
